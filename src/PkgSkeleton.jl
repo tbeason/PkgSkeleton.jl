@@ -26,12 +26,12 @@ and state.
 """
 function get_replacement_values(; pkg_name)
     c = LibGit2.GitConfig()     # global configuration
-    _getgitopt(opt, type = AbstractString) = LibGit2.get(type, c, opt)
+    #_getgitopt(opt, type = AbstractString) = LibGit2.get(type, c, opt)
     ["{UUID}" => UUIDs.uuid4(),
      "{PKGNAME}" => pkg_name,
-     "{GHUSER}" => _getgitopt("github.user"),
-     "{USERNAME}" => _getgitopt("user.name"),
-     "{USEREMAIL}" => _getgitopt("user.email"),
+     "{GHUSER}" => "tbeason", # _getgitopt("github.user"),
+     "{USERNAME}" => "Tyler Beason", #_getgitopt("user.name"),
+     "{USEREMAIL}" => "tbeas12@gmail.com", #_getgitopt("user.email"),
      "{YEAR}" => Dates.year(Dates.now())]
 end
 
